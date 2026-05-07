@@ -1,0 +1,40 @@
+---
+import Default from '@astrojs/starlight/components/SocialIcons.astro';
+import { Icon } from '@astrojs/starlight/components';
+
+const { editUrl } = Astro.locals.starlightRoute;
+---
+
+<Default><slot /></Default>
+
+{
+	editUrl && (
+		<a
+			href={editUrl}
+			target="_blank"
+			rel="noopener noreferrer"
+			class="sl-flex edit-link-header"
+			aria-label="Edit this page on GitHub"
+			title="Edit this page on GitHub"
+		>
+			<Icon name="pencil" />
+		</a>
+	)
+}
+
+<style>
+	.edit-link-header {
+		color: var(--sl-color-text-accent);
+		padding: 0.5em;
+		border-radius: 0.25rem;
+		text-decoration: none;
+	}
+	.edit-link-header:hover {
+		color: var(--sl-color-white);
+		background-color: var(--sl-color-gray-5);
+	}
+	.edit-link-header :global(svg) {
+		width: 1.25em;
+		height: 1.25em;
+	}
+</style>

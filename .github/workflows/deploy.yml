@@ -94,3 +94,18 @@ jobs:
         run: |
           ssh "$DROPLET_USER@$DROPLET_HOST" \
             "set -e; cd /opt/labourhelp && IMAGE_TAG='$IMAGE_TAG' docker compose pull && IMAGE_TAG='$IMAGE_TAG' docker compose up -d --remove-orphans && docker image prune -f"
+
+  cleanup:
+    name: Prune old GHCR image versions
+    needs: [build-and-push, deploy]
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - name: Keep only the 4 most recent versions
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: labourhelp-site
+          package-type: container
+          min-versions-to-keep: 4
+          delete-only-untagged-versions: 'false'

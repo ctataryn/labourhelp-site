@@ -52,7 +52,7 @@ export default defineConfig({
 			},
 			components: {
 				EditLink: './src/components/EmptyEditLink.astro',
-				PageSidebar: './src/components/PageSidebar.astro',
+				SocialIcons: './src/components/SocialIcons.astro',
 			},
 			head: [
 				{
