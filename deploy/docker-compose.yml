@@ -1,0 +1,22 @@
+services:
+  site:
+    image: ghcr.io/ctataryn/labourhelp-site:${IMAGE_TAG:-latest}
+    container_name: labourhelp-site
+    restart: unless-stopped
+    expose:
+      - "80"
+    volumes:
+      - ./webroot/.well-known:/usr/share/nginx/html/.well-known:ro
+
+  haproxy:
+    image: haproxytech/haproxy-alpine:2.9
+    container_name: labourhelp-haproxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+      - ./certs:/etc/ssl/certs/le:ro
+    depends_on:
+      - site
