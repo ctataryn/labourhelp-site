@@ -1,0 +1,17 @@
+.git
+.github
+.astro
+.cache
+node_modules
+dist
+deploy
+brief
+.claude
+.vscode
+.idea
+.DS_Store
+.env
+.env.*
+README.md
+Dockerfile
+.dockerignore
