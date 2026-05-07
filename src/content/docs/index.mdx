@@ -1,40 +1,87 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Labour Help Manitoba
+description: A plain-language guide to your Employment Standards rights and the claim process in Manitoba, written for non-unionized workers.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  tagline: Plain-language help for non-unionized workers in Manitoba, know your rights, understand the claim process, and decide your next move.
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Start with your rights
+      link: /rights/overview/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+    - text: Learn how to file a claim
+      link: /claims/when-to-file/
+      icon: document
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-## Next steps
+## Why This Site Exists
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+About 65% of Manitoba's workforce isn't unionized. For us, our "collective bargain"
+is whatever is written in the **Manitoba Employment Standards Code**, and the system
+that enforces that code is understaffed, complaints-based, and rarely proactive.
+Most of us never learn what our rights actually are until we need them.
+
+This site is a starting point. It won't replace a lawyer. It will help you
+understand the landscape before you talk to one, or before you decide to file a
+claim on your own.
+
+## Where to Start
+
+<CardGrid>
+	<Card title="I want to know what my rights are" icon="open-book">
+		Start with [What are Employment Standards?](/rights/overview/) for an
+		overview of what the code covers and who it applies to.
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="I think my employer broke the rules" icon="warning">
+		Read [When to file a claim](/claims/when-to-file/) and
+		[What the process looks like](/claims/the-process/) before you do anything.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="I was just let go" icon="error">
+		Don't sign anything yet. See [Termination](/rights/termination/) and
+		[Constructive dismissal](/rights/constructive-dismissal/) first.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="I'm new to Canada" icon="translate">
+		Your rights apply regardless of citizenship or visa status.
+		See [For newcomers to Canada](/rights/newcomers/).
 	</Card>
 </CardGrid>
+
+## Reforms We're Pushing For
+
+Knowing your rights is necessary, but it isn't enough. The Manitoba
+Employment Standards system has structural weaknesses, and as long as
+those weaknesses persist, employers will continue to bet, correctly
+most of the time, that breaking the code is cheaper than following it.
+This site exists to push for four specific reforms.
+
+<CardGrid>
+	<LinkCard
+		title="Stiffer fines for employers who break the code"
+		description="Today, getting caught usually means paying what you should have paid in the first place. Manitoba should follow Ontario and impose real penalties on repeat violators."
+		href="/advocacy/#stiffer-fines-for-employers-who-blatantly-breach-labour-law"
+	/>
+	<LinkCard
+		title="Faster claim resolution"
+		description="Most claims take a year or longer. Investing in the Employment Standards Branch would shift incentives that currently punish workers for filing."
+		href="/advocacy/#quicker-turnaround-on-employment-standards-claims"
+	/>
+	<LinkCard
+		title="Mandatory third-party onboarding training"
+		description="Employers should fund independent rights training so workers learn what they're entitled to before something goes wrong, not after."
+		href="/advocacy/#mandatory-third-party-training-for-new-employees-sponsored-by-the-employer"
+	/>
+	<LinkCard
+		title="Legal accountability for HR professionals"
+		description="HR has no legal duty to enforce the code. Direct accountability for HR pros, plus whistleblower protection, would change workplaces overnight."
+		href="/advocacy/#legal-accountability-for-hr-professionals"
+	/>
+</CardGrid>
+
+:::caution[Not legal advice]
+The information here is based on personal experience navigating an Employment
+Standards claim in Manitoba and on publicly available material. It is **not legal
+advice**. If you are facing termination, considering a claim, or unsure about
+your situation, talk to an employment lawyer.
+:::
