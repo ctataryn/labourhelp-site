@@ -1,16 +1,29 @@
-# Starlight Starter Kit: Basics
+# Labour Help Manitoba Site
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+This site helps those interested in Employment Rights for residents of [https://en.wikipedia.org/wiki/Manitoba](Manitoba, Canada).
 
-```
-npm create astro@latest -- --template starlight
-```
+## Contributing
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The site's content is stored in GitHub, and each page has an "Edit this page on GitHub" link on the right hand side of
+the page in the sidebar.
 
-## 🚀 Project Structure
+To edit a page:
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+1. you must first have a GitHub account (free)
+1. click the "Edit this page on GitHub" link
+1. if this is your first time, you'll be asked to "Fork" the repository
+   * a fork of the repository is your own personal playground where you can modify the site
+1. Make your changes, and then open a "Pull Request"
+   * the pull request mechanism allows me to review your changes, ask for revisions and then eventually merge the
+     changes into the main site
+
+## Tech Stack
+
+[https://astro.build/](Astro Web Framework) + [https://astro.build/themes/details/starlight/](Starlight) Theme
+
+## Project Structure
+
+Inside this Astro + Starlight project, you'll see the following folders and files:
 
 ```
 .
@@ -43,7 +56,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).

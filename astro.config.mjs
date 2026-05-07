@@ -47,6 +47,13 @@ export default defineConfig({
 				src: './src/assets/manitoba-flag.svg',
 				alt: 'Flag of Manitoba',
 			},
+			editLink: {
+				baseUrl: 'https://github.com/ctataryn/labourhelp-site/edit/main/',
+			},
+			components: {
+				EditLink: './src/components/EmptyEditLink.astro',
+				PageSidebar: './src/components/PageSidebar.astro',
+			},
 			head: [
 				{
 					tag: 'script',
