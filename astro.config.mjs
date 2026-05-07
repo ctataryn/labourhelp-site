@@ -59,11 +59,15 @@ export default defineConfig({
 					tag: 'script',
 					attrs: { type: 'module' },
 					content: `
-						if (document.querySelector('pre.mermaid, .mermaid')) {
+						const renderMermaid = async () => {
+							if (!document.querySelector('pre.mermaid, .mermaid')) return;
 							const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs');
 							const isDark = document.documentElement.dataset.theme === 'dark';
-							mermaid.initialize({ startOnLoad: true, theme: isDark ? 'dark' : 'neutral' });
-						}
+							mermaid.initialize({ startOnLoad: false, theme: isDark ? 'dark' : 'neutral' });
+							await mermaid.run({ querySelector: 'pre.mermaid, .mermaid' });
+						};
+						renderMermaid();
+						document.addEventListener('astro:page-load', renderMermaid);
 					`,
 				},
 			],
