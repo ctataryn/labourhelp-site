@@ -1,6 +1,6 @@
 # Labour Help Manitoba Site
 
-This site helps those interested in Employment Rights for residents of [https://en.wikipedia.org/wiki/Manitoba](Manitoba, Canada).
+This site helps those interested in Employment Rights for residents of [Manitoba, Canada](https://en.wikipedia.org/wiki/Manitoba).
 
 ## Contributing
 
@@ -19,7 +19,7 @@ To edit a page:
 
 ## Tech Stack
 
-[https://astro.build/](Astro Web Framework) + [https://astro.build/themes/details/starlight/](Starlight) Theme
+[Astro Web Framework](https://astro.build/) + [Starlight](https://astro.build/themes/details/starlight/) Theme
 
 ## Project Structure
 
