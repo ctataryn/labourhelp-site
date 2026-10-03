@@ -83,8 +83,20 @@ jobs:
           DROPLET_HOST: ${{ vars.DROPLET_HOST }}
           DROPLET_USER: ${{ vars.DROPLET_USER }}
         run: |
-          scp deploy/docker-compose.yml deploy/haproxy.cfg \
+          scp deploy/docker-compose.yml deploy/haproxy.cfg deploy/renew-cert.sh \
             "$DROPLET_USER@$DROPLET_HOST:/opt/labourhelp/"
+
+      - name: Install cert renewal cron job
+        env:
+          DROPLET_HOST: ${{ vars.DROPLET_HOST }}
+          DROPLET_USER: ${{ vars.DROPLET_USER }}
+        run: |
+          # Replace any previous copy of the tagged line so the entry stays
+          # single and picks up changes on every deploy.
+          ssh "$DROPLET_USER@$DROPLET_HOST" 'set -e
+            line="0 3 * * * /bin/sh /opt/labourhelp/renew-cert.sh >> /opt/labourhelp/letsencrypt-log/renew-cron.log 2>&1 # labourhelp-renew-cert"
+            { crontab -l 2>/dev/null | grep -v "# labourhelp-renew-cert" || true; echo "$line"; } | crontab -
+            crontab -l | grep "# labourhelp-renew-cert"'
 
       - name: Pull image and restart stack
         env:
