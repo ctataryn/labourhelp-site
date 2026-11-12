@@ -197,7 +197,7 @@ docker logs -f labourhelp-haproxy
 certbot certificates --config-dir /opt/labourhelp/letsencrypt \
   --work-dir /opt/labourhelp/letsencrypt-work --logs-dir /opt/labourhelp/letsencrypt-log
 crontab -l
-tail -n 50 /opt/labourhelp/letsencrypt-log/renew-cron.log
+tail -n 50 /opt/labourhelp/renew-cert.log
 sh /opt/labourhelp/renew-cert.sh                   # run a renewal check now
 echo | openssl s_client -connect labourhelpmb.ca:443 -servername labourhelpmb.ca 2>/dev/null \
   | openssl x509 -noout -enddate   # what HAProxy is actually serving

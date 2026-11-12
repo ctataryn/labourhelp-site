@@ -24,6 +24,16 @@ ping_hc() {
 
 trap 'ping_hc /fail' EXIT
 
+# certbot needs write access to all of these; if an earlier `sudo certbot`
+# left any root-owned, fail with the fix rather than a cryptic lock error.
+for d in "$LE" "$BASE/letsencrypt-work" "$BASE/letsencrypt-log" "$BASE/certs"; do
+  if [ -n "$(find "$d" ! -user "$(id -un)" -print -quit 2>/dev/null)" ] || [ ! -w "$d" ]; then
+    echo "error: $d (or something in it) is not owned by $(id -un). Fix with:" >&2
+    echo "  sudo chown -R $(id -un):$(id -gn) $LE $BASE/letsencrypt-work $BASE/letsencrypt-log $BASE/certs" >&2
+    exit 1
+  fi
+done
+
 certbot renew --quiet \
   --webroot -w "$BASE/webroot" \
   --config-dir "$LE" \
